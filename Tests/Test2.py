@@ -17,7 +17,7 @@ while True:
             contador=contador+1
             total=numero+total
         except :
-            print("Meta un hijuemadre número")
+            print("Por favor, meta un número")
 
 #PROMEDIO Y RESULTADO
 promedio=total/contador
