@@ -50,7 +50,7 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
     #Clasificación del suelo
     if x = 'suelo grueso':
 
-        #Verificación que cumpla los parámetros AASHTO
+        #Verificación que cumpla los parámetros pasa #200
         try:
             pasa200 < 36
         except:
@@ -58,12 +58,25 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
             break
 
         if IG <= 20:
-            #Verificación que cumpla los parámetros AASHTO
+
+            #Verificación que cumpla los parámetros de índice de plasticidad
             try:
                 ip < 11
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break       
+                break
+
+            if ll <= 40:
+                suelo='A-6'
+            elif ll > 41:
+                if ip < (ll-30):
+                    suelo='A-7-5'
+                else ip > (ll-30):
+                    suelo='A-7-6'
+            else:
+                print('Los parámetros no cumplen las normas AASHTO')
+
+
         else:
 
     else:
