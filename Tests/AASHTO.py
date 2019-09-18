@@ -8,9 +8,9 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
 
     # Clasificación de grueso o fino
     if pasa200 < 35:
-        x = 'suelo fino'
+        tipo = 'fino'
     else:
-        x= 'suelo grueso'
+        tipo = 'grueso'
 
     #Definición a
     if pasa200 < 35:
@@ -18,7 +18,7 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
     elif pasa200 > 75:
         a = 40
     else:
-        a = pasa200 - 35
+        int(a) = pasa200 - 35
 
     #Definición b
     if pasa200 < 15 :
@@ -26,7 +26,7 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
     elif pasa200 > 45 :
         b = 40
     else:
-        a = pasa200 - 15
+        int(b) = pasa200 - 15
 
     #Definición c
     if ll < 40:
@@ -34,7 +34,7 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
     elif ll > 60:
         c = 20
     else:
-        c = ll - 35
+        int(c) = ll - 35
 
     #Definición d
     if ip < 10:
@@ -42,13 +42,15 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
     elif ip > 30:
         d = 20
     else:
-        d = ip - 10
+        int(d) = ip - 10
 
     #Índice de grupo
     int(IG) = (0.2*a) + (0.005*a*c) + (0.01*b*d)
 
     #Clasificación del suelo
-    if x = 'suelo grueso':
+    if tipo = 'grueso':
+
+        #SUELOS GRUESOS#
 
         #Verificación que cumpla los parámetros pasa #200
         try:
@@ -96,3 +98,5 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
             print('Los parámetros no cumplen las normas AASHTO')
 
     else:
+
+        #SUELOS FINOS#
