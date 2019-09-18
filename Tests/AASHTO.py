@@ -9,9 +9,9 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
     # Clasificación de grueso o fino
     if pasa200 < 35:
-        tipo == 'fino'
+        tipo = 'fino'
     else:
-        tipo == 'grueso'
+        tipo = 'grueso'
 
     #Definición a
     if pasa200 < 35:
@@ -19,7 +19,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     elif pasa200 > 75:
         a = 40
     else:
-        int(a) = pasa200 - 35
+        a = int(pasa200 - 35)
 
     #Definición b
     if pasa200 < 15 :
@@ -27,7 +27,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     elif pasa200 > 45 :
         b = 40
     else:
-        int(b) = pasa200 - 15
+        b = int(pasa200 - 15)
 
     #Definición c
     if ll < 40:
@@ -35,7 +35,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     elif ll > 60:
         c = 20
     else:
-        int(c) = ll - 35
+        c = int(ll - 35)
 
     #Definición d
     if ip < 10:
@@ -43,10 +43,10 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     elif ip > 30:
         d = 20
     else:
-        int(d) = ip - 10
+        d = int(ip - 10)
 
     #Índice de grupo
-    int(IG) = (0.2*a) + (0.005*a*c) + (0.01*b*d)
+    IG = int((0.2*a) + (0.005*a*c) + (0.01*b*d))
 
     #Clasificación del suelo
 
@@ -59,7 +59,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
             pasa200 < 36
         except:
             print('Los parámetros no cumplen las normas AASHTO')
-            break
+
 
         if IG <= 8:
             #Verificación que cumpla los parámetros de índice de plasticidad
@@ -67,7 +67,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                 ip > 10
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break
+
             if ll <= 40:
                 suelo = 'A-4'
 
@@ -77,7 +77,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                 ip > 10
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break
+
             if ll >= 41:
                 suelo = 'A-5'
 
@@ -87,7 +87,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                 ip < 11
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break
+
             if ll <= 40:
                 suelo='A-6'
             elif ll > 41:
@@ -98,6 +98,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
         else:
             print('Los parámetros no cumplen las normas AASHTO')
+            suelo = '¿?'
 
     else:
 
@@ -111,13 +112,13 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                     pasa40 > 30
                 except:
                     print('Los parámetros no cumplen las normas AASHTO')
-                    break
+
                 #Verificación que cumpla los parámetros de pasa #200
                 try:
                     pasa200 > 15
                 except:
                     print('Los parámetros no cumplen las normas AASHTO')
-                    break
+
                 suelo = 'A-1-a'
             elif pasa10 == (''):  #En caso que esté vacío
                 #Verificación que cumpla los parámetros de pasa #40
@@ -125,29 +126,30 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                     pasa40 > 50
                 except:
                     print('Los parámetros no cumplen las normas AASHTO')
-                    break
+
                 #Verificación que cumpla los parámetros de pasa #200
                 try:
                     pasa200 > 25
                 except:
                     print('Los parámetros no cumplen las normas AASHTO')
-                    break
+
                 suelo = 'A-1-b'
             else:
                 print('Los parámetros no cumplen las normas AASHTO')
+                suelo = ''
         elif ip == (''): #En caso que esté vacío
             #Verificación que cumpla los parámetros de pasa #40
             try:
                 pasa40 < 51
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break
+
             #Verificación que cumpla los parámetros de pasa #200
             try:
                 pasa200 > 10
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break
+
             suelo = 'A-3'
         elif ip <= 10:
             #Verificación que cumpla los parámetros de pasa #200
@@ -155,33 +157,46 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                 pasa200 > 35
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
-                break
+
             if ll <= 40 :
                 suelo = 'A-2-4'
             elif ll  >= 41 :
                 suelo = 'A-2-5'
             else:
                 print('Los parámetros no cumplen las normas AASHTO')
+                suelo = '¿?'
         else:
             print('Los parámetros no cumplen las normas AASHTO')
+            suelo = '¿?'
      elif IG <= 4:
         #Verificación que cumpla los parámetros de pasa #200
         try:
             pasa200 > 35
         except:
             print('Los parámetros no cumplen las normas AASHTO')
-            break
+
         #Verificación que cumpla los parámetros de índice de plasticidad
         try:
             ip < 11
         except:
             print('Los parámetros no cumplen las normas AASHTO')
-            break
+
         if ll <= 40:
             suelo = 'A-2-6'
         elif ll >= 41:
             suelo = 'A-2-7'
         else:
             print('Los parámetros no cumplen las normas AASHTO')
+            suelo = '¿?'
      else:
          print('Los parámetros no cumplen las normas AAHSTO')
+         suelo = '¿?'
+
+    resultado = 'Este suelo es un ' + str(suelo)
+
+    #Resultado final
+
+    print(resultado)
+
+
+AASHTO(0,0,26,0,0,0,32,0,65,20)
