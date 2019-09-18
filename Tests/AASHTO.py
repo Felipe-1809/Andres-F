@@ -57,15 +57,33 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
             print('Los parámetros no cumplen las normas AASHTO')
             break
 
-        if IG <= 20:
+        if IG <= 8:
+            #Verificación que cumpla los parámetros de índice de plasticidad
+            try:
+                ip > 10
+            except:
+                print('Los parámetros no cumplen las normas AASHTO')
+                break
+            if ll <= 40:
+                suelo = 'A-4'
 
+        elif IG <= 12:
+            #Verificación que cumpla los parámetros de índice de plasticidad
+            try:
+                ip > 10
+            except:
+                print('Los parámetros no cumplen las normas AASHTO')
+                break
+            if ll >= 41:
+                suelo = 'A-5'
+
+        elif IG <= 20:
             #Verificación que cumpla los parámetros de índice de plasticidad
             try:
                 ip < 11
             except:
                 print('Los parámetros no cumplen las normas AASHTO')
                 break
-
             if ll <= 40:
                 suelo='A-6'
             elif ll > 41:
@@ -73,10 +91,8 @@ def AASHTO(t34,t38,t4,t10,t50,t100,t200,fondo,ll,lp):
                     suelo='A-7-5'
                 else ip > (ll-30):
                     suelo='A-7-6'
-            else:
-                print('Los parámetros no cumplen las normas AASHTO')
-
 
         else:
+            print('Los parámetros no cumplen las normas AASHTO')
 
     else:
