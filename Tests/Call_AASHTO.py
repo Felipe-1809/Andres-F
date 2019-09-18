@@ -1,0 +1,3 @@
+from AASHTO.py import AASHTO
+
+AASHTO(100,2031,654,32,20,30,55,0,10,20)

@@ -197,6 +197,3 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     #Resultado final
 
     print(resultado)
-
-
-AASHTO(0,0,26,0,0,0,32,0,65,20)
