@@ -60,7 +60,6 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
         except:
             print('Los parámetros no cumplen las normas AASHTO')
 
-
         if IG <= 8:
             #Verificación que cumpla los parámetros de índice de plasticidad
             try:
@@ -126,60 +125,55 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
                 suelo = 'A-1-b' #####
 
             else:
-                print('Los parámetros no cumplen las normas AASHTO')
-                suelo = '¿?'
+                suelo = 'desconocido'
 
         elif ip == 0:
-            #Verificación que cumpla los parámetros de pasa #40
+            #Verificación que cumpla los parámetros de pasa #40 y pasa #200
             try:
                 pasa40 < 51
                 pasa200 > 10
             except:
-                print('Los parámetros no cumplen las normas AASHTO LINEA 145')
+                print('Los parámetros no cumplen las normas AASHTO')
+                suelo = 'desconocido'
 
             suelo = 'A-3' #####
-
         elif ip <= 10:
 
             #Verificación que cumpla los parámetros de pasa #200
             try:
                 pasa200 > 35
             except:
-                print('Los parámetros no cumplen las normas AASHTO LINEA 159')
+                print('Los parámetros no cumplen las normas AASHTO')
 
             if ll <= 40 :
-                suelo = 'A-2-4'
+                suelo = 'A-2-4' #####
             elif ll  >= 41 :
-                suelo = 'A-2-5'
+                suelo = 'A-2-5' #####
             else:
                 print('Los parámetros no cumplen las normas AASHTO LINEA 166')
-                suelo = '¿?'
+                suelo = 'desconocido'
         else:
-            print('Los parámetros no cumplen las normas AASHTO LINEA 169')
-            suelo = '¿?'
+            print('Los parámetros no cumplen las normas AASHTO')
+            suelo = 'desconocido'
+
      elif IG <= 4:
         #Verificación que cumpla los parámetros de pasa #200
         try:
             pasa200 > 35
-        except:
-            print('Los parámetros no cumplen las normas AASHTO LINEA 176')
-
-        #Verificación que cumpla los parámetros de índice de plasticidad
-        try:
             ip < 11
         except:
-            print('Los parámetros no cumplen las normas AASHTO LINEA 182')
+            print('Los parámetros no cumplen las normas AASHTO')
 
         if ll <= 40:
-            suelo = 'A-2-6'
+            suelo = 'A-2-6' #####
         elif ll >= 41:
-            suelo = 'A-2-7'
+            suelo = 'A-2-7' #####
         else:
-            print('Los parámetros no cumplen las normas AASHTO LINEA 189')
-            suelo = '¿?'
+            print('Los parámetros no cumplen las normas AASHTO')
+            suelo = 'desconocido'
      else:
-         print('Los parámetros no cumplen las normas AAHSTO LINEA 192')
-         suelo = '¿?'
+         print('Los parámetros no cumplen las normas AAHSTO')
+         suelo = 'desconocido'
 
     resultado = 'Este suelo es un ' + str(suelo)
 
