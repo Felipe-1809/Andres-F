@@ -40,7 +40,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
         d = int(ip - 10)
 
     #Condiciones A-7
-    a7=ll-30
+    a7 = ll-30
 
     #Índice de grupo
     IG = int((0.2*a) + (0.005*a*c) + (0.01*b*d))
