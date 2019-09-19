@@ -1,11 +1,11 @@
-def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,ip):
+def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
     # Cálculos básicos
     total = t34+t38+t4+t10+t40+t100+t200
     pasa10 = 100 - ((100*(t34+t38+t4+t10))/total)
     pasa40 = 100 - ((100*(t34+t38+t4+t10+t40))/total)
     pasa200 = ((100*fondo)/total)
-    ip=ll-lp
+    ip = ll-lp
 
     #Definición a
     if pasa200 < 35:
@@ -74,7 +74,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,ip):
             suelo = 'desconocido'
 
     #Clasificación de gruesos
-    if general =='grueso'
+    if general == 'grueso'
         if IG = 0:
             if ip = 0:
                 if ll = 0:
@@ -103,4 +103,23 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,ip):
                     elif ll >= 41:
                         suelo = 'A-2-7'
         else:
-            suelo = 'desconocidos'
+            suelo = 'desconocido'
+
+    #Guardado de resultados y mensajes
+    res = str(suelo)
+    des = str('Este suelo no fue reconocido bajo parámetros AASHTO')
+    sue = str('Este suelo es un ')
+    gru = str(IG)
+    fin = sue + res + str('(') + gru + str(')')
+
+    #Impresión de resultados
+    if suelo == 'desconocido':
+        print(des)
+    else:
+        print(fin)
+
+    #Ingreso de granulometría
+
+    #Ejemplo:
+    AASHTO(0,0,0,0,26,0,6,68,65,20)
+    #AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp)
