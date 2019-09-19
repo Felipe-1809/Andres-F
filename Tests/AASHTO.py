@@ -72,3 +72,35 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,ip):
                             suelo = 'A-7-6'
         else:
             suelo = 'desconocido'
+
+    #Clasificación de gruesos
+    if general =='grueso'
+        if IG = 0:
+            if ip = 0:
+                if ll = 0:
+                    if pasa200 <= 10:
+                        if pasa40 >= 51:
+                            suelo = 'A-3'
+            elif ip <= 6:
+                if pasa200 <= 15:
+                    if pasa40 <= 30:
+                        if pasa10 <= 50:
+                            suelo = 'A-1-a'
+                if pasa200 <= 25:
+                    if pasa40 <= 50:
+                        suelo = 'A-1-b'
+            elif ip <= 10:
+                if pasa200 <= 35:
+                    if ll <= 40:
+                        suelo = 'A-2-4'
+                    if ll >= 41:
+                        suelo = 'A-2-5'
+        if IG <= 4:
+            if ip >= 11:
+                if pasa200 <= 35:
+                    if ll <= 40:
+                        suelo = 'A-2-6'
+                    elif ll >= 41:
+                        suelo = 'A-2-7'
+        else:
+            suelo = 'desconocidos'
