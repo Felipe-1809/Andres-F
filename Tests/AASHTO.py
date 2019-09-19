@@ -116,33 +116,31 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
                 suelo = 'A-1-a' #####
 
-            elif pasa200 <= 10:
+            elif pasa200 <= 25:
                 #Verificación que cumpla los parámetros de pasa #40
                 try:
-                    pasa40 < 51
+                    pasa40 > 50
                 except:
                     print('Los parámetros no cumplen las normas AASHTO')
 
                 suelo = 'A-1-b' #####
 
             else:
-                print('Los parámetros no cumplen las normas AASHTO LINEA 138')
+                print('Los parámetros no cumplen las normas AASHTO')
                 suelo = '¿?'
-        elif ip == 0: #En caso que esté vacío
+
+        elif ip == 0:
             #Verificación que cumpla los parámetros de pasa #40
             try:
                 pasa40 < 51
+                pasa200 > 10
             except:
                 print('Los parámetros no cumplen las normas AASHTO LINEA 145')
 
-            #Verificación que cumpla los parámetros de pasa #200
-            try:
-                pasa200 > 10
-            except:
-                print('Los parámetros no cumplen las normas AASHTO LINEA 151')
+            suelo = 'A-3' #####
 
-            suelo = 'A-3'
         elif ip <= 10:
+
             #Verificación que cumpla los parámetros de pasa #200
             try:
                 pasa200 > 35
