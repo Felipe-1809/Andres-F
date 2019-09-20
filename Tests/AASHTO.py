@@ -1,5 +1,21 @@
 def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
+    #Inicialización de variables
+
+    total = 0
+    pasa10 = 0
+    pasa40 = 0
+    pasa200 = 0
+    ip = 0
+    a = 0
+    b = 0
+    c = 0
+    d = 0
+    a7 = 0
+    IG = 0
+    general = ''
+
+
     # Cálculos básicos
     total = t34+t38+t4+t10+t40+t100+t200
     pasa10 = 100 - ((100*(t34+t38+t4+t10))/total)
@@ -47,12 +63,12 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
     #División general
     if pasa200 < 35:
-        general = 'grueso'
+        general = str('grueso')
     else:
         general = 'fino'
 
     #Clasificación de finos
-    if general = fino
+    if general = 'fino'
         if pasa200 >= 36:
             if ip <= 10:
                 if IG <= 8:
@@ -74,7 +90,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
             suelo = 'desconocido'
 
     #Clasificación de gruesos
-    if general = grueso
+    if general == 'grueso'
         if IG = 0:
             if ip = 0:
                 if ll = 0:
