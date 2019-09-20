@@ -20,10 +20,10 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
 
     #Clasificación del Suelo
     if pasa200 > 50:
-        tipo = 'fino'
+        tipo == "fino"
 
     #Suelos finos
-    if tipo = 'fino':
+    if tipo == "fino":
         if ll > 50:
             if u > ip:
                 if a < ip:
@@ -56,7 +56,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
         if caso1 = TRUE:
             if 50 < pasa4:
             grueso = 'arena'
-                if grueso = 'arena':
+                if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:
                             if 6 < cu:
@@ -75,7 +75,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
         if caso2 = TRUE:
             if 50 < pasa4:
             grueso = 'arena'
-                if grueso = 'arena':
+                if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:
                             if 6 < cu:
@@ -111,7 +111,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
         if caso3 = TRUE:
             if 50 < pasa4:
             grueso = 'arena'
-                if grueso = 'arena':
+                if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:
                             if 6 < cu:

@@ -50,12 +50,12 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
     #División general
     if pasa200 < 35:
-        general = str('grueso')
+        general = "grueso"
     else:
-        general = 'fino'
+        general = "fino"
 
     #Clasificación de finos
-    if general = 'fino'
+    if general ==  "fino":
         if pasa200 >= 36:
             if ip <= 10:
                 if IG <= 8:
@@ -77,10 +77,10 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
             suelo = 'desconocido'
 
     #Clasificación de gruesos
-    if general == 'grueso'
-        if IG = 0:
-            if ip = 0:
-                if ll = 0:
+    if general == 'grueso':
+        if IG == 0:
+            if ip == 0:
+                if ll == 0:
                     if pasa200 <= 10:
                         if pasa40 >= 51:
                             suelo = 'A-3'
@@ -116,10 +116,11 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     fin = sue + res + str('(') + gru + str(')')
 
     #Impresión de resultados
-    if suelo == 'desconocido':
-        print(des)
-    else:
-        print(fin)
+    #if suelo == 'desconocido':
+    #    print(des)
+    #else:
+    #    print(fin)
+    print(res)
 
     #Ingreso de granulometría
 
