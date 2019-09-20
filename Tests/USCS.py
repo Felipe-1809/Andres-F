@@ -60,54 +60,19 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                     if 1 < cc:
                         if cc < 3:
                             if 6 < cu:
-                                first = 'SW'
+                                suelo = 'SW'
                     else:
-                        first = 'SP'
+                        suelo = 'SP'
                 else:
                     if 1 < cc:
                         if cc < 3:
                             if 4 < cu:
-                                first = 'GW'
+                                suelo = 'GW'
                     else:
-                        first = 'GP'
+                        suelo = 'GP'
 
         #Caso 2
         if caso2 = TRUE:
-            if 50 < pasa4:
-            grueso = 'arena'
-                if grueso = 'arena':
-                    if 1 < cc:
-                        if cc < 3:
-                            if 6 < cu:
-                                first = 'S'
-                    else:
-                        first = 'S'
-                else:
-                    if 1 < cc:
-                        if cc < 3:
-                            if 4 < cu:
-                                first = 'G'
-                    else:
-                        first = 'G'            
-            if ll > 50:
-                if u > ip:
-                    if a < ip:
-                        second = 'C'
-                    else:
-                        second = 'M'
-            else:
-                if u > ip:
-                    if a > ip:
-                        second = 'M'
-                    else:
-                        if 4 < ip:
-                            if 7 > ip:
-                                second = 'C'
-                            else:
-                                second = 'C'
-
-        #Caso 3
-        if caso3 = TRUE:
             if 50 < pasa4:
             grueso = 'arena'
                 if grueso = 'arena':
@@ -140,3 +105,44 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                                 second = 'C'
                             else:
                                 second = 'C'
+            suelo = first + second
+
+        #Caso 3
+        if caso3 = TRUE:
+            if 50 < pasa4:
+            grueso = 'arena'
+                if grueso = 'arena':
+                    if 1 < cc:
+                        if cc < 3:
+                            if 6 < cu:
+                                suelo = 'Arenas bien gradadas'
+                    else:
+                        suelo = 'Arenas mal gradadas'
+                else:
+                    if 1 < cc:
+                        if cc < 3:
+                            if 4 < cu:
+                                suelo = 'Gravas bien gradadas'
+                    else:
+                        suelo = 'Gravas mal gradadas'
+                if ll > 50:
+                    if u > ip:
+                        if a < ip:
+                            suelo = 'arcillas de alta plasticidad'
+                        else:
+                            suelo = 'limos de alta plasticidad'
+                else:
+                    if u > ip:
+                        if a > ip:
+                            suelo = 'limos de baja plasticidad'
+                        else:
+                            if 4 < ip:
+                                if 7 > ip:
+                                    suelo = 'arcillas y limos de alta plasticidad'
+                                else:
+                                    suelo = 'arcillas de baja plasticidad'
+            suelo = first + second
+
+    print('Se encontró que el tipo de suelo corresponde a un:' + suelo )
+
+    #USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60)

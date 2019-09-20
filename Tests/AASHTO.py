@@ -1,20 +1,7 @@
 def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
     #Inicialización de variables
-
-    total = 0
-    pasa10 = 0
-    pasa40 = 0
-    pasa200 = 0
-    ip = 0
-    a = 0
-    b = 0
-    c = 0
-    d = 0
-    a7 = 0
-    IG = 0
     general = ''
-
 
     # Cálculos básicos
     total = t34+t38+t4+t10+t40+t100+t200
