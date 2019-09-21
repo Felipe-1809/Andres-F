@@ -5,10 +5,10 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     suelo = ''
 
     # Cálculos básicos
-    total = t34+t38+t4+t10+t40+t100+t200
+    total = t34+t38+t4+t10+t40+t100+t200+fondo
     pasa4 = 100 - ((100*(t34+t38+t4))/total)
     pasa40 = 100 - ((100*(t34+t38+t4+t10+t40))/total)
-    pasa200 = ((100*fondo)/total)
+    pasa200 = 100- ((100*(t34+t38+t4+t10+t40+t100+t200))/total)
     ip = ll-lp
 
     #Definición a
