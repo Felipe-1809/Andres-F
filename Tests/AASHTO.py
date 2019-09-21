@@ -125,7 +125,7 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 #Interfaz
 print('Este programa a través de la granulometría ingresada da como resultado la clasificación bajo el sistema AASHTO')
 print('Orden de granulometría: t3/4, t3/8, t4, t10, t40, t100, t200, fondo')
-print('Orden de límites líquido y plástico')
+print('Orden de límites líquido y plástico: LL, LP')
 t34, t38, t4, t10, t40, t100, t200, fondo = [int(x) for x in input("Ingrese la granulometría").split()]
 ll, lp = [int(x) for x in input("Ingrese los límites líquido y plástico").split()]
 

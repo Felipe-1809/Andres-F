@@ -17,6 +17,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
     #Inicialización de variables
     grueso = str('')
     tipo = str('')
+    suelo = str('')
 
     #Clasificación del Suelo
     if pasa200 > 50:
@@ -55,7 +56,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
         #Caso 1
         if caso1 == TRUE:
             if 50 < pasa4:
-                grueso = 'arena'
+                grueso == 'arena'
                 if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:
@@ -141,8 +142,20 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                                     suelo = 'arcillas y limos de alta plasticidad'
                                 else:
                                     suelo = 'arcillas de baja plasticidad'
-            suelo = first + second
 
-    print('Se encontró que el tipo de suelo corresponde a un:' + suelo )
+    #Impresión de resultados
+    if suelo == '':
+        print('Este suelo no se acoje a los parámetros de Clasificación USCS')
+    else:
+        print("Este suelo corresponde a un:" + suelo)
 
-    #USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60)
+#Interfaz
+print('Este programa a través de la granulometría ingresada da como resultado la clasificación bajo el sistema USCS')
+print('Orden de granulometría: t3/4, t3/8, t4, t10, t40, t100, t200, fondo')
+print('Orden de límites líquido y plástico: LL, LP')
+print('Orden de deciles: D10, D30, D60')
+t34, t38, t4, t10, t40, t100, t200, fondo = [int(x) for x in input("Ingrese la granulometría").split()]
+ll, lp = [int(x) for x in input("Ingrese los límites líquido y plástico").split()]
+d10, d30, d60 = [int(x) for x in input("Ingrese los límites líquido y plástico").split()]
+
+USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60)
