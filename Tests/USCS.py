@@ -53,9 +53,9 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
             caso3 = TRUE
 
         #Caso 1
-        if caso1 = TRUE:
+        if caso1 == TRUE:
             if 50 < pasa4:
-            grueso = 'arena'
+                grueso = 'arena'
                 if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:
@@ -72,9 +72,9 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                         suelo = 'GP'
 
         #Caso 2
-        if caso2 = TRUE:
+        if caso2 == TRUE:
             if 50 < pasa4:
-            grueso = 'arena'
+                grueso = 'arena'
                 if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:
@@ -108,9 +108,9 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
             suelo = first + second
 
         #Caso 3
-        if caso3 = TRUE:
+        if caso3 == TRUE:
             if 50 < pasa4:
-            grueso = 'arena'
+                grueso = 'arena'
                 if grueso == "arena":
                     if 1 < cc:
                         if cc < 3:

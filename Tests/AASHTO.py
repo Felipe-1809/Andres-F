@@ -2,10 +2,11 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
 
     #Inicialización de variables
     general = ''
+    suelo = ''
 
     # Cálculos básicos
     total = t34+t38+t4+t10+t40+t100+t200
-    pasa10 = 100 - ((100*(t34+t38+t4+t10))/total)
+    pasa4 = 100 - ((100*(t34+t38+t4))/total)
     pasa40 = 100 - ((100*(t34+t38+t4+t10+t40))/total)
     pasa200 = ((100*fondo)/total)
     ip = ll-lp
@@ -116,14 +117,16 @@ def AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp):
     fin = sue + res + str('(') + gru + str(')')
 
     #Impresión de resultados
-    #if suelo == 'desconocido':
-    #    print(des)
-    #else:
-    #    print(fin)
-    print(res)
+    if suelo == 'desconocido':
+        print(des)
+    else:
+        print(fin)
 
+    print(pasa4)
+    print(pasa40)
+    print(pasa200)
     #Ingreso de granulometría
 
-    #Ejemplo:
-    AASHTO(0,0,0,0,26,0,6,68,65,20)
-    #AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp)
+#Ejemplo:
+AASHTO(0,0,0,0,26,0,6,68,65,20)
+#AASHTO(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp)
