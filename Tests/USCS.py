@@ -122,19 +122,19 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                                 suelo = 'Arenas bien gradadas'
                     else:
                         suelo = 'Arenas pobremente gradadas'
+            else:
+                if 1 < cc:
+                    if cc < 3:
+                        if 4 < cu:
+                            suelo = 'Gravas bien gradadas'
                 else:
-                    if 1 < cc:
-                        if cc < 3:
-                            if 4 < cu:
-                                suelo = 'Gravas bien gradadas'
+                    suelo = 'Gravas pobremente gradadas'
+            if ll > 50:
+                if u > ip:
+                    if a < ip:
+                        suelo = 'arcillas de alta plasticidad'
                     else:
-                        suelo = 'Gravas pobremente gradadas'
-                if ll > 50:
-                    if u > ip:
-                        if a < ip:
-                            suelo = 'arcillas de alta plasticidad'
-                        else:
-                            suelo = 'limos de alta plasticidad'
+                        suelo = 'limos de alta plasticidad'
                 else:
                     if u > ip:
                         if a > ip:
