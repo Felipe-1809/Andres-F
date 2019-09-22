@@ -11,146 +11,113 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
     cu = d60 / d10
 
     #Cálculos de la carta de plasticidad
-    u = 0.90 - (ll-8)
-    a = 0.73 - (ll-20)
+    u = 0.90 * (ll-8)
+    a = 0.73 * (ll-20)
 
     #Inicialización de variables
-    grueso = str('')
-    tipo = str('')
-    suelo = str('')
-    caso1 = str('')
-    caso2 = str('')
-    caso3 = str('')
+    finos = ""
+    gruesos = ""
+    suelo = ""
+    granulometria = ""
+    atterberg = ""
+    first = ""
+    second = ""
 
-    #Clasificación del Suelo
+    #Estudio parte fina
     if pasa200 > 50:
-        tipo == "fino"
+        finos = "fino"
+    #Estudio parte gruesa
+    if pasa4 > 50:
+        gruesos = "arena"
 
-    #Suelos finos
-    if tipo == "fino":
-        if ll > 50:
-            if u > ip:
-                if a < ip:
-                    suelo = 'CH'
+    #Límites de Atterberg - Suelo fino
+    if finos == "fino":
+        if u > ip:
+            if ll > 50:
+                if ip > a:
+                    suelo = "CH"
                 else:
-                    suelo = 'MH - OH'
-        else:
-            if u > ip:
-                if a > ip:
-                    suelo = 'ML-OL'
-                else:
+                    suelo = "MH - OH"
+            else:
+                if ip > a:
                     if 4 < ip:
-                        if 7 > ip:
-                            suelo = 'CL-ML'
+                        if ip < 7:
+                            suelo = "CL - ML"
                         else:
-                            suelo = 'CL'
+                            suelo = "CL"
+                    else:
+                        print("Este suelo está bajo el índice de plasticidad de 4% y sobre la línea A")
+                else:
+                    suelo = "ML - OH"
+        else:
+            print("Este suelo sobrepasa la línea U")
 
     #Suelos gruesos
     else:
-
         #Casos
-        if pasa200 < 5:
-            caso1 = "TRUE"
-        elif pasa200 > 12:
-            caso2 = "TRUE"
-        else:
-            caso3 = "TRUE"
+        if pasa200 < 12:
+            granulometria = "TRUE"
+        if pasa200 > 5:
+            atterberg = "TRUE"
 
-        #Caso 1
-        if caso1 == "TRUE":
-            if 50 < pasa4:
-                grueso == 'arena'
-                if grueso == "arena":
-                    if 1 < cc:
-                        if cc < 3:
-                            if 6 < cu:
-                                suelo = 'SW'
-                    else:
-                        suelo = 'SP'
+        #Granulometría
+        if granulometria == "TRUE":
+            if gruesos == "arena":
+                if 1 < cc:
+                    if cc < 3:
+                        if cu > 6:
+                            first = "SW"
                 else:
-                    if 1 < cc:
-                        if cc < 3:
-                            if 4 < cu:
-                                suelo = 'GW'
-                    else:
-                        suelo = 'GP'
-
-        #Caso 2
-        if caso2 == "TRUE":
-            if 50 < pasa4:
-                grueso = 'arena'
-                if grueso == "arena":
-                    if 1 < cc:
-                        if cc < 3:
-                            if 6 < cu:
-                                first = 'S'
-                    else:
-                        first = 'S'
-                else:
-                    if 1 < cc:
-                        if cc < 3:
-                            if 4 < cu:
-                                first = 'G'
-                    else:
-                        first = 'G'
-            if ll > 50:
-                if u > ip:
-                    if a < ip:
-                        second = 'C'
-                    else:
-                        second = 'M'
-            else:
-                if u > ip:
-                    if a > ip:
-                        second = 'M'
-                    else:
-                        if 4 < ip:
-                            if 7 > ip:
-                                second = 'C'
-                            else:
-                                second = 'C'
-            suelo = first + second
-
-        #Caso 3
-        if caso3 == "TRUE":
-            if 50 < pasa4:
-                grueso = 'arena'
-                if grueso == "arena":
-                    if 1 < cc:
-                        if cc < 3:
-                            if 6 < cu:
-                                suelo = 'Arenas bien gradadas'
-                    else:
-                        suelo = 'Arenas pobremente gradadas'
+                    first = "SP"
             else:
                 if 1 < cc:
                     if cc < 3:
-                        if 4 < cu:
-                            suelo = 'Gravas bien gradadas'
+                        if cu > 4:
+                            first = "GW"
                 else:
-                    suelo = 'Gravas pobremente gradadas'
-            if ll > 50:
-                if u > ip:
-                    if a < ip:
-                        suelo = 'arcillas de alta plasticidad'
+                    first = "GP"
+        #Atterberg
+        if atterberg == "TRUE":
+            if u > ip:
+                if ll > 50:
+                    if ip > a:
+                        second = "C"
                     else:
-                        suelo = 'limos de alta plasticidad'
+                        second = "M"
                 else:
-                    if u > ip:
-                        if a > ip:
-                            suelo = 'limos de baja plasticidad'
+                    if ip > a:
+                        if 4 < ip:
+                            if ip < 7:
+                                second = "C"
+                            else:
+                                second = "C"
                         else:
-                            if 4 < ip:
-                                if 7 > ip:
-                                    suelo = 'arcillas y limos de alta plasticidad'
-                                else:
-                                    suelo = 'arcillas de baja plasticidad'
+                            print("Este suelo está bajo el índice de plasticidad de 4% y sobre la línea A*")
+                    else:
+                        second = "M"
+            else:
+                print("Este suelo sobrepasa la línea U*")
 
     #Impresión de resultados
-    if suelo == '':
-        print('Este suelo no se acoje a los parámetros de Clasificación USCS')
-    else:
-        print("Este suelo corresponde a un:" + suelo)
+    print("Este suelo corresponde a un:" + suelo)
+    print(u)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Interfaz
 #print('Este programa a través de la granulometría ingresada da como resultado la clasificación bajo el sistema USCS')
@@ -162,4 +129,4 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
 #d10, d30, d60 = [float(x) for x in input("Ingrese los deciles").split()]
 
 #USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60)
-USCS(0,0,25,0,45,0,22,8,18,6,0.081,0.21,0.28)
+USCS(0,0,25,0,45,0,22,8,65,20,0.081,0.21,0.28)
