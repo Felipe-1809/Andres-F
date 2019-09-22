@@ -131,4 +131,5 @@ ll, lp = [int(x) for x in input("Ingrese los límites líquido y plástico").spl
 
 AASHTO(t34, t38, t4, t10, t40, t100, t200, fondo, ll, lp)
 
+
 #AFRH
