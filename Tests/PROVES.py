@@ -83,7 +83,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                     if ip > 4:
                         second = "C"
                     else:
-                        print("Esta arcilla tiene un límite plástico menor que 4")
+                        print("Esta arcilla tiene un índice de plasticidad de 4% y sobre la línea A")
                 else:
                     second = "M"
             else:
