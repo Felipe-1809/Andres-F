@@ -83,7 +83,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
                     if ip > 4:
                         second = "C"
                     else:
-                        print("Esta arcilla tiene un índice de plasticidad de 4% y sobre la línea A")
+                        print("Esta arcilla tiene un índice de plasticidad menor que 4% y sobre la línea A")
                 else:
                     second = "M"
             else:
@@ -95,7 +95,7 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
         elif pasa200 > 12:
             suelo = first[1] + second
         else:
-            primero = str(first) + str(" - ") + str(first[1]) + str(second)
+            suelo = str(first) + str(" - ") + str(first[1]) + str(second)
 
     #Impresión de resultados
     print("Este suelo corresponde a un:" + suelo)
@@ -111,3 +111,4 @@ def USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60):
 
 #USCS(t34,t38,t4,t10,t40,t100,t200,fondo,ll,lp,d10,d30,d60)
 USCS(0,0,25,0,45,0,22,8,18,6,0.081,0.21,0.28)
+#DEBERÍA DAR SP - SC
