@@ -38,20 +38,20 @@ function PB(q,b,ranx,rany,dif)
     %Gradient's graphic (3d)
     figure(1)
     [xx,yy] = meshgrid(x_pos,y_pos);
-    mesh(yy,xx,Matub);
+    mesh(xx,yy,Matub);
     colormap('jet');
     colorbar;
     title('Esfuerzo vertical')
-    xlabel('Profundidad')
-    ylabel('Distancia horizontal')
+    xlabel('Distancia horizontal')
+    ylabel('Profundidad')
     zlabel('Esfuezo(x,y)')
 
     %Preassure bulb (2d)
     figure(2)
-    contour(yy,xx,Matub);
+    contour(xx,yy,Matub);
     colormap('jet');
     colorbar;
     title('Bulbo de esfuerzos vertical')
-    xlabel('Profundidad')
-    ylabel('Distancia horizontal')
+    xlabel('Distancia horizontal')
+    ylabel('Profundidad')
     zlabel('Esfuezo(x,y)')
