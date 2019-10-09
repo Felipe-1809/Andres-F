@@ -6,8 +6,8 @@
 %%%b=atan((x_pos(j) - (b/2))/y_pos(i))
 %%%a=atan((x_pos(j) + (b/2))/y_pos(i))-atan((x_pos(j) - (b/2))/y_pos(i))
 
-    b=6; %Parámetro ingresado
-    q=10; %Parámetro ingresado
+    b=6; %Parámetro - a modificar
+    q=10; %Parámetro - a modificar
    
     %División de la cuadrícula
     y = 4 * b; %Rango y - a modificar
@@ -31,6 +31,7 @@
         end
     end 
    
+%Gráfico de resultados
 figure(1)
 [xx,yy] = meshgrid(x_pos,y_pos);
 mesh(yy,xx,Matub);
