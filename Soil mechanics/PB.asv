@@ -10,21 +10,22 @@
     q=10; %Parámetro ingresado
    
     %División de la cuadrícula
-    y = 4 * b; %Rango y - a modificar
+    y = 4 * b; %Rango y - a modi
     x = 3 * b; %Rango x - a modificar
 
-    dy = b / 100; %Diferencial y
-    dx = b / 100; %Diferencial x
+    dy = b / 6; %Diferencial y
+    dx = b / 6; %Diferencial x
+  
     
     canty = y / dy; %Cantidad de elementos en y
     cantx = x / dx; %Cantidad de elementos en x  
          
-    x_pos=linspace(0,x,cantx); %Vector de coordenadas en x
-    y_pos=linspace(0,y,canty); %Vector de coordenadas en y
+    x_pos=linspace(0,x,cantx);
+    y_pos=linspace(0,y,canty);
     
-    Matub=zeros(canty,cantx); %Inicialización de la matríz de con las ubicaciones
+    Matub=zeros(canty,cantx);
     
-    %Matriz de esfuerzos
+    %Matriz de ubicaciones
     for i=1: canty
         for j=1:cantx
             Matub(i,j) = (q/pi())*((atan((x_pos(j) + (b/2))/y_pos(i))-atan((x_pos(j) - (b/2))/y_pos(i)))+(sin(atan((x_pos(j) + (b/2))/y_pos(i))-atan((x_pos(j) - (b/2))/y_pos(i)))*cos(atan((x_pos(j) + (b/2))/y_pos(i))-atan((x_pos(j) - (b/2))/y_pos(i))+(2*(atan((x_pos(j) - (b/2))/y_pos(i)))))));
