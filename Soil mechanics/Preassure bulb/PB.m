@@ -1,12 +1,17 @@
 %This function develops the bulb preassure in a soil according to:
-%%% q - The load applied along a distance
-%%% b - The length where the load is applied
+%%% q -> The load applied along a distance
+%%% b -> The length where the load is applied
 
 %Alpha and beta values were calculated as:
-%%% b = atan((x_pos(j) - (b/2))/y_pos(i))
-%%% a = atan((x_pos(j) + (b/2))/y_pos(i)) - atan((x_pos(j) - (b/2))/y_pos(i))
+%%% Beta = atan((x_pos(j) - (b/2))/y_pos(i))
+%%% Alpha = atan((x_pos(j) + (b/2))/y_pos(i)) - atan((x_pos(j) - (b/2))/y_pos(i))
 
-function PB(b,q,ranx,rany,dif)
+% Other varibles
+%%% Range x -> b times projected in the x-axis
+%%% Range y -> b times projected in the y-axis
+%%% Differential -> Precision level required
+
+function PB(q,b,ranx,rany,dif)
    
     %Development of the grid
     y = b * rany; %Range y
