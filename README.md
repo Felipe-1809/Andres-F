@@ -1,2 +1,2 @@
-# Learning.PY
-A bunch of material i'm using while learning Python :)
+# Andres' programs
+A bunch of material i'm using while learning to programming
