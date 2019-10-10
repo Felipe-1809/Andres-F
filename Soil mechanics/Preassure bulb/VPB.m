@@ -11,7 +11,7 @@
 %%% Range y -> b times projected in the y-axis
 %%% Differential -> Precision level required
 
-function PB(q,b,ranx,rany,dif)
+function VPB(q,b,ranx,rany,dif)
    
     %Development of the grid
     y = b * rany; %Range y
@@ -37,7 +37,7 @@ function PB(q,b,ranx,rany,dif)
    
     %Gradient's graphic (3d)
     figure(1)
-    [xx,yy] = meshgrid(x_pos,y_pos);
+    [xx,yy] = meshgrid(x_pos,-y_pos);
     mesh(xx,yy,Matub);
     colormap('jet');
     colorbar;
